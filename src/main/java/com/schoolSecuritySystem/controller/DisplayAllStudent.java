@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-public class displayUser {
+public class DisplayAllStudent {
     @Autowired
     private StudentServiceImpl studentServiceimpl;
     @ResponseBody
-    @RequestMapping("/hello")
-    public String list(){
-        return "say hello";
+    @RequestMapping("/allStudentList")
+    public List<StudentInfo> list(){
+        List<StudentInfo> studentlist = studentServiceimpl.getStudentList();
+        return studentlist;
     }
 
 
