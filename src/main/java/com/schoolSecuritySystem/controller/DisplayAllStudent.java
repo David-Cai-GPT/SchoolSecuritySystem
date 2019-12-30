@@ -18,4 +18,6 @@ public class DisplayAllStudent {
         List<StudentInfo> studentlist = studentServiceimpl.getStudentList();
         return studentlist;
     }
+
+
 }
