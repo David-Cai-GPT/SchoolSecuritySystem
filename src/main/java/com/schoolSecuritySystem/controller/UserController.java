@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/User")
 public class UserController {
     @Autowired
-    private UserServiceImpl userServiceimpl;
+    private UserServiceImpl userService;
 
     @ResponseBody
     @PostMapping("/register")
     public boolean NewUserRegister(@RequestBody NewUserInfoReq dto) {
-        return userServiceimpl.userRegister(dto); }
+        return userService.userRegister(dto); }
 
     @ResponseBody
     @PostMapping("/login")
     public boolean UserLogin(@RequestBody UserLoginInfoReq dto) {
-        return userServiceimpl.userLogin(dto);
+        return userService.userLogin(dto);
     }
 }

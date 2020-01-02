@@ -23,4 +23,13 @@ public class StudentServiceImpl implements StudentService {
         List<StudentInfo> studentInfoList= studentInfoMapper.selectByExample(studentInfoExample);
         return studentInfoList;
     }
+
+    @Override
+    public int getStudentNum() {
+        StudentInfoExample studentInfoExample =  new StudentInfoExample();
+        StudentInfoExample.Criteria criteria = studentInfoExample.createCriteria();
+        criteria.andIdIsNotNull();
+        int num = studentInfoMapper.countByExample(studentInfoExample);
+        return num;
+    }
 }
