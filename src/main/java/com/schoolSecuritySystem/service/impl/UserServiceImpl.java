@@ -6,7 +6,6 @@ import com.schoolSecuritySystem.dto.UserComtroller.UserLoginInfoReq;
 import com.schoolSecuritySystem.pojo.UserInfo;
 import com.schoolSecuritySystem.pojo.UserInfoExample;
 import com.schoolSecuritySystem.service.UserService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,5 +53,14 @@ public class UserServiceImpl implements UserService {
             }
         }
         return login;
+    }
+
+    @Override
+    public int getAllUserNum() {
+        UserInfoExample userInfoExample = new UserInfoExample();
+        UserInfoExample.Criteria criteria = userInfoExample.createCriteria();
+        criteria.andIdIsNotNull();
+        int num = userInfoMapper.countByExample(userInfoExample);
+        return num;
     }
 }

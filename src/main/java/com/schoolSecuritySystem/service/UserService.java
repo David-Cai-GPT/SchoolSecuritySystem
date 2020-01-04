@@ -6,5 +6,6 @@ import com.schoolSecuritySystem.dto.UserComtroller.UserLoginInfoReq;
 public interface UserService {
     boolean userRegister(NewUserInfoReq dto);
     boolean userLogin(UserLoginInfoReq dto);
+    int getAllUserNum();
 }
 

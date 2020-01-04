@@ -23,4 +23,8 @@ public class UserController {
     public boolean UserLogin(@RequestBody UserLoginInfoReq dto) {
         return userService.userLogin(dto);
     }
+
+    @ResponseBody
+    @PostMapping("/getAllUserNum")
+    public int GetAllUserNum() { return userService.getAllUserNum(); }
 }
