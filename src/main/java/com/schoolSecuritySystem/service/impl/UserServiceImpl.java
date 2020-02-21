@@ -63,4 +63,13 @@ public class UserServiceImpl implements UserService {
         int num = userInfoMapper.countByExample(userInfoExample);
         return num;
     }
+
+    @Override
+    public List<UserInfo> getAllUserInfomation() {
+        UserInfoExample userInfoExample = new UserInfoExample();
+        UserInfoExample.Criteria criteria = userInfoExample.createCriteria();
+        criteria.andIdIsNotNull();
+        List<UserInfo> userInfoList = userInfoMapper.selectByExample(userInfoExample);
+        return userInfoList;
+    }
 }
