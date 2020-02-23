@@ -1,7 +1,7 @@
 package com.schoolSecuritySystem.service;
 
-import com.schoolSecuritySystem.dto.UserComtroller.NewUserInfoReq;
-import com.schoolSecuritySystem.dto.UserComtroller.UserLoginInfoReq;
+import com.schoolSecuritySystem.dto.UserController.NewUserInfoReq;
+import com.schoolSecuritySystem.dto.UserController.UserLoginInfoReq;
 import com.schoolSecuritySystem.pojo.UserInfo;
 
 import java.util.List;

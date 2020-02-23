@@ -4,7 +4,9 @@ import com.schoolSecuritySystem.pojo.Activityapply;
 import com.schoolSecuritySystem.pojo.ActivityapplyExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ActivityapplyMapper {
 
     int countByExample(ActivityapplyExample example);

@@ -1,7 +1,7 @@
 package com.schoolSecuritySystem.controller;
 
-import com.schoolSecuritySystem.dto.UserComtroller.NewUserInfoReq;
-import com.schoolSecuritySystem.dto.UserComtroller.UserLoginInfoReq;
+import com.schoolSecuritySystem.dto.UserController.NewUserInfoReq;
+import com.schoolSecuritySystem.dto.UserController.UserLoginInfoReq;
 import com.schoolSecuritySystem.pojo.UserInfo;
 import com.schoolSecuritySystem.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

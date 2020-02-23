@@ -1,4 +1,4 @@
-package com.schoolSecuritySystem.dto.UserComtroller;
+package com.schoolSecuritySystem.dto.UserController;
 
 public class UserLoginInfoReq {
     private String username;
