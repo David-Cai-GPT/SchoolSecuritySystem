@@ -3,12 +3,14 @@ package com.schoolSecuritySystem.service.impl;
 import com.schoolSecuritySystem.dao.ActivityapplyMapper;
 import com.schoolSecuritySystem.dto.ActivityController.ApplyActivityInfoReq;
 import com.schoolSecuritySystem.pojo.Activityapply;
+import com.schoolSecuritySystem.pojo.ActivityapplyExample;
 import com.schoolSecuritySystem.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ActivityServiceImpl implements ActivityService {
@@ -37,5 +39,14 @@ public class ActivityServiceImpl implements ActivityService {
         activityapply.setType(dto.getType());
         activityapplyMapper.insert(activityapply);
         return true;
+    }
+
+    @Override
+    public List<Activityapply> getAllActivityInfo() {
+        ActivityapplyExample activityapplyExample = new ActivityapplyExample();
+        ActivityapplyExample.Criteria criteria = activityapplyExample.createCriteria();
+        criteria.andNoIsNotNull();
+        List<Activityapply> list = activityapplyMapper.selectByExample(activityapplyExample);
+        return list;
     }
 }
