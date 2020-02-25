@@ -23,5 +23,5 @@ public class ActivitySApplyController {
 
     @ResponseBody
     @PostMapping("/allActivityInfo")
-    public List<Activityapply> ActivityApply() { return activityService.getAllActivityInfo(); }
+    public List<Activityapply> GetAllActivityInfo() { return activityService.getAllActivityInfo(); }
 }
