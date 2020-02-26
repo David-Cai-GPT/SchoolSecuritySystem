@@ -5,16 +5,14 @@ import com.schoolSecuritySystem.pojo.Visitorapply;
 import com.schoolSecuritySystem.service.VisitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
 @RequestMapping(value = "/Visitor")
-public class VisitorComtroller {
+public class VisitorController {
     @Autowired
     private VisitorService visitorService;
     @ResponseBody
@@ -24,4 +22,12 @@ public class VisitorComtroller {
     @ResponseBody
     @PostMapping("/allVisitorInfo")
     public List<Visitorapply> GetAllVisitorInfo() { return visitorService.getAllVisitorInfo(); }
+
+    @ResponseBody
+    @PostMapping("/visitorSignIn")
+    public boolean VisitorSignIn(@RequestBody ApplyVisitorInfoReq dto){ return visitorService.visitorSignIn(dto); }
+
+    @ResponseBody
+    @PostMapping("/visitorSignOut")
+    public boolean VisitorSignOut(@RequestBody ApplyVisitorInfoReq dto){ return visitorService.visitorSignOut(dto); }
 }

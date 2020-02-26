@@ -42,4 +42,32 @@ public class VisitorServiceImpl implements VisitorService {
         List<Visitorapply> list = visitorapplyMapper.selectByExample(visitorapplyExample);
         return list;
     }
+
+    @Override
+    public boolean visitorSignIn(ApplyVisitorInfoReq dto) {
+        VisitorapplyExample visitorapplyExample = new VisitorapplyExample();
+        VisitorapplyExample.Criteria criteria = visitorapplyExample.createCriteria();
+        criteria.andVisitornameEqualTo(dto.getVisitorName());
+        Visitorapply visitorapply = new Visitorapply();
+        Date date = new Date();
+        SimpleDateFormat ft1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String visitorSignInTime = ft1.format(date);
+        visitorapply.setVisitorstarttime(visitorSignInTime);
+        visitorapplyMapper.updateByExampleSelective(visitorapply, visitorapplyExample);
+        return true;
+    }
+
+    @Override
+    public boolean visitorSignOut(ApplyVisitorInfoReq dto) {
+        VisitorapplyExample visitorapplyExample = new VisitorapplyExample();
+        VisitorapplyExample.Criteria criteria = visitorapplyExample.createCriteria();
+        criteria.andVisitornameEqualTo(dto.getVisitorName());
+        Visitorapply visitorapply = new Visitorapply();
+        Date date = new Date();
+        SimpleDateFormat ft1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String visitorSignInTime = ft1.format(date);
+        visitorapply.setVisitorendtime(visitorSignInTime);
+        visitorapplyMapper.updateByExampleSelective(visitorapply, visitorapplyExample);
+        return true;
+    }
 }

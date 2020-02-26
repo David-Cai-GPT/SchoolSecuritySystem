@@ -8,4 +8,6 @@ import java.util.List;
 public interface VisitorService {
     boolean applyVisitor(ApplyVisitorInfoReq dto);
     List<Visitorapply> getAllVisitorInfo();
+    boolean visitorSignIn(ApplyVisitorInfoReq dto);
+    boolean visitorSignOut(ApplyVisitorInfoReq dto);
 }
