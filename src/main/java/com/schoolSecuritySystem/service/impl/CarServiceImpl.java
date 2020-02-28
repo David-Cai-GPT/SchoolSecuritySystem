@@ -7,7 +7,6 @@ import com.schoolSecuritySystem.pojo.CarrecordExample;
 import com.schoolSecuritySystem.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -43,5 +42,20 @@ public class CarServiceImpl implements CarService {
             }
         }
         return list;
+    }
+
+    @Override
+    public boolean carOutRecord(CarInfoReq dto) {
+        Carrecord carrecord = new Carrecord();
+        CarrecordExample carrecordExample = new CarrecordExample();
+        CarrecordExample.Criteria criteria = carrecordExample.createCriteria();
+        criteria.andCarnumberEqualTo(dto.getCarNumber());
+        Date time = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String carOutTime = ft.format(time);
+        carrecord.setCarouttime(carOutTime);
+        carrecord.setStatus("0");
+        carrecordMapper.updateByExampleSelective(carrecord, carrecordExample);
+        return true;
     }
 }

@@ -26,4 +26,8 @@ public class CarController {
     @ResponseBody
     @PostMapping("/allCarInfo")
     public List<Carrecord> GetAllCarInfo() { return carService.carInfo(); }
+
+    @ResponseBody
+    @PostMapping("/carOutRecord")
+    public boolean CarOutRecord(@RequestBody CarInfoReq dto) { return carService.carOutRecord(dto); }
 }
