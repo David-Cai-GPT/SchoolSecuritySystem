@@ -10,7 +10,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="gender" jdbcType="INTEGER" property="gender" />
     <result column="academy" jdbcType="VARCHAR" property="academy" />
-    <result column="mobliePhone" jdbcType="INTEGER" property="mobliephone" />
+    <result column="mobliePhone" jdbcType="VARCHAR" property="mobliephone" />
     <result column="teacherCardId" jdbcType="INTEGER" property="teachercardid" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="emergencyContact" jdbcType="VARCHAR" property="emergencycontact" />
@@ -149,7 +149,7 @@
       address, emergencyContact, emergencyContactMobilePhone, 
       Email, role, work)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, 
-      #{academy,jdbcType=VARCHAR}, #{mobliephone,jdbcType=INTEGER}, #{teachercardid,jdbcType=INTEGER}, 
+      #{academy,jdbcType=VARCHAR}, #{mobliephone,jdbcType=VARCHAR}, #{teachercardid,jdbcType=INTEGER}, 
       #{address,jdbcType=VARCHAR}, #{emergencycontact,jdbcType=VARCHAR}, #{emergencycontactmobilephone,jdbcType=INTEGER}, 
       #{email,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, #{work,jdbcType=VARCHAR})
   </insert>
@@ -211,7 +211,7 @@
         #{academy,jdbcType=VARCHAR},
       </if>
       <if test="mobliephone != null">
-        #{mobliephone,jdbcType=INTEGER},
+        #{mobliephone,jdbcType=VARCHAR},
       </if>
       <if test="teachercardid != null">
         #{teachercardid,jdbcType=INTEGER},
@@ -266,7 +266,7 @@
         academy = #{record.academy,jdbcType=VARCHAR},
       </if>
       <if test="record.mobliephone != null">
-        mobliePhone = #{record.mobliephone,jdbcType=INTEGER},
+        mobliePhone = #{record.mobliephone,jdbcType=VARCHAR},
       </if>
       <if test="record.teachercardid != null">
         teacherCardId = #{record.teachercardid,jdbcType=INTEGER},
@@ -304,7 +304,7 @@
       name = #{record.name,jdbcType=VARCHAR},
       gender = #{record.gender,jdbcType=INTEGER},
       academy = #{record.academy,jdbcType=VARCHAR},
-      mobliePhone = #{record.mobliephone,jdbcType=INTEGER},
+      mobliePhone = #{record.mobliephone,jdbcType=VARCHAR},
       teacherCardId = #{record.teachercardid,jdbcType=INTEGER},
       address = #{record.address,jdbcType=VARCHAR},
       emergencyContact = #{record.emergencycontact,jdbcType=VARCHAR},
@@ -333,7 +333,7 @@
         academy = #{academy,jdbcType=VARCHAR},
       </if>
       <if test="mobliephone != null">
-        mobliePhone = #{mobliephone,jdbcType=INTEGER},
+        mobliePhone = #{mobliephone,jdbcType=VARCHAR},
       </if>
       <if test="teachercardid != null">
         teacherCardId = #{teachercardid,jdbcType=INTEGER},
@@ -368,7 +368,7 @@
     set name = #{name,jdbcType=VARCHAR},
       gender = #{gender,jdbcType=INTEGER},
       academy = #{academy,jdbcType=VARCHAR},
-      mobliePhone = #{mobliephone,jdbcType=INTEGER},
+      mobliePhone = #{mobliephone,jdbcType=VARCHAR},
       teacherCardId = #{teachercardid,jdbcType=INTEGER},
       address = #{address,jdbcType=VARCHAR},
       emergencyContact = #{emergencycontact,jdbcType=VARCHAR},

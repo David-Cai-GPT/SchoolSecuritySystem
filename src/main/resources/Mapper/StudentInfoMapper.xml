@@ -11,8 +11,8 @@
     <result column="gender" jdbcType="INTEGER" property="gender" />
     <result column="academy" jdbcType="VARCHAR" property="academy" />
     <result column="classroom" jdbcType="VARCHAR" property="classroom" />
-    <result column="mobliePhone" jdbcType="INTEGER" property="mobliephone" />
-    <result column="studentCardId" jdbcType="INTEGER" property="studentcardid" />
+    <result column="mobliePhone" jdbcType="VARCHAR" property="mobliephone" />
+    <result column="studentCardId" jdbcType="VARCHAR" property="studentcardid" />
     <result column="domitory" jdbcType="INTEGER" property="domitory" />
     <result column="emergencyContact" jdbcType="VARCHAR" property="emergencycontact" />
     <result column="emergencyContactMobilePhone" jdbcType="INTEGER" property="emergencycontactmobilephone" />
@@ -150,8 +150,8 @@
       emergencyContactMobilePhone, Email, role
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, 
-      #{academy,jdbcType=VARCHAR}, #{classroom,jdbcType=VARCHAR}, #{mobliephone,jdbcType=INTEGER}, 
-      #{studentcardid,jdbcType=INTEGER}, #{domitory,jdbcType=INTEGER}, #{emergencycontact,jdbcType=VARCHAR}, 
+      #{academy,jdbcType=VARCHAR}, #{classroom,jdbcType=VARCHAR}, #{mobliephone,jdbcType=VARCHAR}, 
+      #{studentcardid,jdbcType=VARCHAR}, #{domitory,jdbcType=INTEGER}, #{emergencycontact,jdbcType=VARCHAR}, 
       #{emergencycontactmobilephone,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}
       )
   </insert>
@@ -216,10 +216,10 @@
         #{classroom,jdbcType=VARCHAR},
       </if>
       <if test="mobliephone != null">
-        #{mobliephone,jdbcType=INTEGER},
+        #{mobliephone,jdbcType=VARCHAR},
       </if>
       <if test="studentcardid != null">
-        #{studentcardid,jdbcType=INTEGER},
+        #{studentcardid,jdbcType=VARCHAR},
       </if>
       <if test="domitory != null">
         #{domitory,jdbcType=INTEGER},
@@ -271,10 +271,10 @@
         classroom = #{record.classroom,jdbcType=VARCHAR},
       </if>
       <if test="record.mobliephone != null">
-        mobliePhone = #{record.mobliephone,jdbcType=INTEGER},
+        mobliePhone = #{record.mobliephone,jdbcType=VARCHAR},
       </if>
       <if test="record.studentcardid != null">
-        studentCardId = #{record.studentcardid,jdbcType=INTEGER},
+        studentCardId = #{record.studentcardid,jdbcType=VARCHAR},
       </if>
       <if test="record.domitory != null">
         domitory = #{record.domitory,jdbcType=INTEGER},
@@ -307,8 +307,8 @@
       gender = #{record.gender,jdbcType=INTEGER},
       academy = #{record.academy,jdbcType=VARCHAR},
       classroom = #{record.classroom,jdbcType=VARCHAR},
-      mobliePhone = #{record.mobliephone,jdbcType=INTEGER},
-      studentCardId = #{record.studentcardid,jdbcType=INTEGER},
+      mobliePhone = #{record.mobliephone,jdbcType=VARCHAR},
+      studentCardId = #{record.studentcardid,jdbcType=VARCHAR},
       domitory = #{record.domitory,jdbcType=INTEGER},
       emergencyContact = #{record.emergencycontact,jdbcType=VARCHAR},
       emergencyContactMobilePhone = #{record.emergencycontactmobilephone,jdbcType=INTEGER},
@@ -338,10 +338,10 @@
         classroom = #{classroom,jdbcType=VARCHAR},
       </if>
       <if test="mobliephone != null">
-        mobliePhone = #{mobliephone,jdbcType=INTEGER},
+        mobliePhone = #{mobliephone,jdbcType=VARCHAR},
       </if>
       <if test="studentcardid != null">
-        studentCardId = #{studentcardid,jdbcType=INTEGER},
+        studentCardId = #{studentcardid,jdbcType=VARCHAR},
       </if>
       <if test="domitory != null">
         domitory = #{domitory,jdbcType=INTEGER},
@@ -371,8 +371,8 @@
       gender = #{gender,jdbcType=INTEGER},
       academy = #{academy,jdbcType=VARCHAR},
       classroom = #{classroom,jdbcType=VARCHAR},
-      mobliePhone = #{mobliephone,jdbcType=INTEGER},
-      studentCardId = #{studentcardid,jdbcType=INTEGER},
+      mobliePhone = #{mobliephone,jdbcType=VARCHAR},
+      studentCardId = #{studentcardid,jdbcType=VARCHAR},
       domitory = #{domitory,jdbcType=INTEGER},
       emergencyContact = #{emergencycontact,jdbcType=VARCHAR},
       emergencyContactMobilePhone = #{emergencycontactmobilephone,jdbcType=INTEGER},
