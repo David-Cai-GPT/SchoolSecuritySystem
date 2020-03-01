@@ -58,4 +58,18 @@ public class CarServiceImpl implements CarService {
         carrecordMapper.updateByExampleSelective(carrecord, carrecordExample);
         return true;
     }
+
+    @Override
+    public int surpluspark() {
+        int AllParkNumber = 200;// 总的停车位200
+        CarrecordExample carrecordExample = new CarrecordExample();
+        CarrecordExample.Criteria criteria = carrecordExample.createCriteria();
+        criteria.andIdIsNotNull();
+        List<Carrecord> list = carrecordMapper.selectByExample(carrecordExample);
+        if(list.size() == AllParkNumber) {
+            return 0;
+        } else {
+            return AllParkNumber - list.size();
+        }
+    }
 }

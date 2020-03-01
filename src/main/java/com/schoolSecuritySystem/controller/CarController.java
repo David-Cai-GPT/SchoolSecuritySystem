@@ -30,4 +30,8 @@ public class CarController {
     @ResponseBody
     @PostMapping("/carOutRecord")
     public boolean CarOutRecord(@RequestBody CarInfoReq dto) { return carService.carOutRecord(dto); }
+
+    @ResponseBody
+    @PostMapping("/surplusParkNumber")
+    public int GetSurplusParkNumber() { return carService.surpluspark(); }
 }

@@ -9,4 +9,5 @@ public interface CarService {
     boolean carRecord(CarInfoReq dto);
     List<Carrecord> carInfo();
     boolean carOutRecord(CarInfoReq dto);
+    int surpluspark();
 }
