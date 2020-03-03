@@ -534,52 +534,62 @@ public class TeacherInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andTeachercardidEqualTo(Integer value) {
+        public Criteria andTeachercardidEqualTo(String value) {
             addCriterion("teacherCardId =", value, "teachercardid");
             return (Criteria) this;
         }
 
-        public Criteria andTeachercardidNotEqualTo(Integer value) {
+        public Criteria andTeachercardidNotEqualTo(String value) {
             addCriterion("teacherCardId <>", value, "teachercardid");
             return (Criteria) this;
         }
 
-        public Criteria andTeachercardidGreaterThan(Integer value) {
+        public Criteria andTeachercardidGreaterThan(String value) {
             addCriterion("teacherCardId >", value, "teachercardid");
             return (Criteria) this;
         }
 
-        public Criteria andTeachercardidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andTeachercardidGreaterThanOrEqualTo(String value) {
             addCriterion("teacherCardId >=", value, "teachercardid");
             return (Criteria) this;
         }
 
-        public Criteria andTeachercardidLessThan(Integer value) {
+        public Criteria andTeachercardidLessThan(String value) {
             addCriterion("teacherCardId <", value, "teachercardid");
             return (Criteria) this;
         }
 
-        public Criteria andTeachercardidLessThanOrEqualTo(Integer value) {
+        public Criteria andTeachercardidLessThanOrEqualTo(String value) {
             addCriterion("teacherCardId <=", value, "teachercardid");
             return (Criteria) this;
         }
 
-        public Criteria andTeachercardidIn(List<Integer> values) {
+        public Criteria andTeachercardidLike(String value) {
+            addCriterion("teacherCardId like", value, "teachercardid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeachercardidNotLike(String value) {
+            addCriterion("teacherCardId not like", value, "teachercardid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeachercardidIn(List<String> values) {
             addCriterion("teacherCardId in", values, "teachercardid");
             return (Criteria) this;
         }
 
-        public Criteria andTeachercardidNotIn(List<Integer> values) {
+        public Criteria andTeachercardidNotIn(List<String> values) {
             addCriterion("teacherCardId not in", values, "teachercardid");
             return (Criteria) this;
         }
 
-        public Criteria andTeachercardidBetween(Integer value1, Integer value2) {
+        public Criteria andTeachercardidBetween(String value1, String value2) {
             addCriterion("teacherCardId between", value1, value2, "teachercardid");
             return (Criteria) this;
         }
 
-        public Criteria andTeachercardidNotBetween(Integer value1, Integer value2) {
+        public Criteria andTeachercardidNotBetween(String value1, String value2) {
             addCriterion("teacherCardId not between", value1, value2, "teachercardid");
             return (Criteria) this;
         }
@@ -734,52 +744,62 @@ public class TeacherInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andEmergencycontactmobilephoneEqualTo(Integer value) {
+        public Criteria andEmergencycontactmobilephoneEqualTo(String value) {
             addCriterion("emergencyContactMobilePhone =", value, "emergencycontactmobilephone");
             return (Criteria) this;
         }
 
-        public Criteria andEmergencycontactmobilephoneNotEqualTo(Integer value) {
+        public Criteria andEmergencycontactmobilephoneNotEqualTo(String value) {
             addCriterion("emergencyContactMobilePhone <>", value, "emergencycontactmobilephone");
             return (Criteria) this;
         }
 
-        public Criteria andEmergencycontactmobilephoneGreaterThan(Integer value) {
+        public Criteria andEmergencycontactmobilephoneGreaterThan(String value) {
             addCriterion("emergencyContactMobilePhone >", value, "emergencycontactmobilephone");
             return (Criteria) this;
         }
 
-        public Criteria andEmergencycontactmobilephoneGreaterThanOrEqualTo(Integer value) {
+        public Criteria andEmergencycontactmobilephoneGreaterThanOrEqualTo(String value) {
             addCriterion("emergencyContactMobilePhone >=", value, "emergencycontactmobilephone");
             return (Criteria) this;
         }
 
-        public Criteria andEmergencycontactmobilephoneLessThan(Integer value) {
+        public Criteria andEmergencycontactmobilephoneLessThan(String value) {
             addCriterion("emergencyContactMobilePhone <", value, "emergencycontactmobilephone");
             return (Criteria) this;
         }
 
-        public Criteria andEmergencycontactmobilephoneLessThanOrEqualTo(Integer value) {
+        public Criteria andEmergencycontactmobilephoneLessThanOrEqualTo(String value) {
             addCriterion("emergencyContactMobilePhone <=", value, "emergencycontactmobilephone");
             return (Criteria) this;
         }
 
-        public Criteria andEmergencycontactmobilephoneIn(List<Integer> values) {
+        public Criteria andEmergencycontactmobilephoneLike(String value) {
+            addCriterion("emergencyContactMobilePhone like", value, "emergencycontactmobilephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmergencycontactmobilephoneNotLike(String value) {
+            addCriterion("emergencyContactMobilePhone not like", value, "emergencycontactmobilephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andEmergencycontactmobilephoneIn(List<String> values) {
             addCriterion("emergencyContactMobilePhone in", values, "emergencycontactmobilephone");
             return (Criteria) this;
         }
 
-        public Criteria andEmergencycontactmobilephoneNotIn(List<Integer> values) {
+        public Criteria andEmergencycontactmobilephoneNotIn(List<String> values) {
             addCriterion("emergencyContactMobilePhone not in", values, "emergencycontactmobilephone");
             return (Criteria) this;
         }
 
-        public Criteria andEmergencycontactmobilephoneBetween(Integer value1, Integer value2) {
+        public Criteria andEmergencycontactmobilephoneBetween(String value1, String value2) {
             addCriterion("emergencyContactMobilePhone between", value1, value2, "emergencycontactmobilephone");
             return (Criteria) this;
         }
 
-        public Criteria andEmergencycontactmobilephoneNotBetween(Integer value1, Integer value2) {
+        public Criteria andEmergencycontactmobilephoneNotBetween(String value1, String value2) {
             addCriterion("emergencyContactMobilePhone not between", value1, value2, "emergencycontactmobilephone");
             return (Criteria) this;
         }

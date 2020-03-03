@@ -1,6 +1,7 @@
 package com.schoolSecuritySystem.service.impl;
 
 import com.schoolSecuritySystem.dao.StudentInfoMapper;
+import com.schoolSecuritySystem.dto.StudentController.addNewStudentReq;
 import com.schoolSecuritySystem.pojo.StudentInfo;
 import com.schoolSecuritySystem.pojo.StudentInfoExample;
 import com.schoolSecuritySystem.service.StudentService;
@@ -32,5 +33,31 @@ public class StudentServiceImpl implements StudentService {
         criteria.andIdIsNotNull();
         int num = studentInfoMapper.countByExample(studentInfoExample);
         return num;
+    }
+
+    @Override
+    public boolean addNewStudent(addNewStudentReq dto) {
+        StudentInfoExample studentInfoExample = new StudentInfoExample();
+        StudentInfoExample.Criteria criteria = studentInfoExample.createCriteria();
+        criteria.andNameEqualTo(dto.getName());
+        List<StudentInfo> list = studentInfoMapper.selectByExample(studentInfoExample);
+        if(list.size() != 0){
+            return false;
+        } else {
+            StudentInfo studentInfo = new StudentInfo();
+            studentInfo.setName(dto.getName());
+            studentInfo.setGender(dto.getGender());
+            studentInfo.setAcademy(dto.getAcademy());
+            studentInfo.setClassroom(dto.getClassroom());
+            studentInfo.setMobliephone(dto.getMobilephone());
+            studentInfo.setStudentcardid(dto.getStudentCardId());
+            studentInfo.setDomitory(dto.getDomitory());
+            studentInfo.setEmergencycontact(dto.getEmergencyContact());
+            studentInfo.setEmergencycontactmobilephone(dto.getEmergencyContactMobilePhone());
+            studentInfo.setEmail(dto.getEmail());
+            studentInfo.setRole(dto.getRole());
+            studentInfoMapper.insert(studentInfo);
+            return true;
+        }
     }
 }

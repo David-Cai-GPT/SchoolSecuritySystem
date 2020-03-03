@@ -1,6 +1,7 @@
 package com.schoolSecuritySystem.controller;
 
 
+import com.schoolSecuritySystem.dto.StudentController.addNewStudentReq;
 import com.schoolSecuritySystem.pojo.StudentInfo;
 import com.schoolSecuritySystem.service.impl.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,9 @@ public class StudentController {
     @ResponseBody
     @PostMapping("/getAllStudentNum")
     public int GetAllStudentNum() { return studentService.getStudentNum(); }
+
+    @ResponseBody
+    @PostMapping("/addNewStudent")
+    public boolean AddNewStudent(addNewStudentReq dto) { return studentService.addNewStudent(dto); }
 
 }

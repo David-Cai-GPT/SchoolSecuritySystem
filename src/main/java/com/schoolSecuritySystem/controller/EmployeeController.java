@@ -1,5 +1,7 @@
 package com.schoolSecuritySystem.controller;
 
+import com.schoolSecuritySystem.dto.EmployeeController.addNewEmployeeReq;
+import com.schoolSecuritySystem.dto.StudentController.addNewStudentReq;
 import com.schoolSecuritySystem.pojo.EmployeeInfo;
 import com.schoolSecuritySystem.service.impl.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,4 +25,8 @@ public class EmployeeController {
     @ResponseBody
     @PostMapping("/getAllEmployeeInfo")
     public List<EmployeeInfo> getAllEmployeeInfo(){ return employeeService.getEmployeeInfomation(); }
+
+    @ResponseBody
+    @PostMapping("/addNewEmployee")
+    public boolean AddNewEmployee(addNewEmployeeReq dto) { return employeeService.addNewEmployee(dto); }
 }

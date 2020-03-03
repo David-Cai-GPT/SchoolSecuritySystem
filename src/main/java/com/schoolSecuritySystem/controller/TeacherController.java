@@ -1,5 +1,7 @@
 package com.schoolSecuritySystem.controller;
 
+import com.schoolSecuritySystem.dto.StudentController.addNewStudentReq;
+import com.schoolSecuritySystem.dto.TeacherController.addNewTeacherReq;
 import com.schoolSecuritySystem.pojo.StudentInfo;
 import com.schoolSecuritySystem.pojo.TeacherInfo;
 import com.schoolSecuritySystem.service.impl.TeacherServiceImpl;
@@ -24,4 +26,8 @@ public class TeacherController {
     @ResponseBody
     @PostMapping("/getAllTeacherInfo")
     public List<TeacherInfo> GetAllStudentInfo() { return teacherService.getAllTeacherInfo(); }
+
+    @ResponseBody
+    @PostMapping("/addNewTeacher")
+    public boolean AddNewStudent(addNewTeacherReq dto) { return teacherService.addNewTeacher(dto); }
 }

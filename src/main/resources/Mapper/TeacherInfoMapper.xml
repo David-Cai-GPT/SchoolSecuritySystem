@@ -11,10 +11,10 @@
     <result column="gender" jdbcType="INTEGER" property="gender" />
     <result column="academy" jdbcType="VARCHAR" property="academy" />
     <result column="mobliePhone" jdbcType="VARCHAR" property="mobliephone" />
-    <result column="teacherCardId" jdbcType="INTEGER" property="teachercardid" />
+    <result column="teacherCardId" jdbcType="VARCHAR" property="teachercardid" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="emergencyContact" jdbcType="VARCHAR" property="emergencycontact" />
-    <result column="emergencyContactMobilePhone" jdbcType="INTEGER" property="emergencycontactmobilephone" />
+    <result column="emergencyContactMobilePhone" jdbcType="VARCHAR" property="emergencycontactmobilephone" />
     <result column="Email" jdbcType="VARCHAR" property="email" />
     <result column="role" jdbcType="INTEGER" property="role" />
     <result column="work" jdbcType="VARCHAR" property="work" />
@@ -149,8 +149,8 @@
       address, emergencyContact, emergencyContactMobilePhone, 
       Email, role, work)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, 
-      #{academy,jdbcType=VARCHAR}, #{mobliephone,jdbcType=VARCHAR}, #{teachercardid,jdbcType=INTEGER}, 
-      #{address,jdbcType=VARCHAR}, #{emergencycontact,jdbcType=VARCHAR}, #{emergencycontactmobilephone,jdbcType=INTEGER}, 
+      #{academy,jdbcType=VARCHAR}, #{mobliephone,jdbcType=VARCHAR}, #{teachercardid,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{emergencycontact,jdbcType=VARCHAR}, #{emergencycontactmobilephone,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, #{work,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.schoolSecuritySystem.pojo.TeacherInfo">
@@ -214,7 +214,7 @@
         #{mobliephone,jdbcType=VARCHAR},
       </if>
       <if test="teachercardid != null">
-        #{teachercardid,jdbcType=INTEGER},
+        #{teachercardid,jdbcType=VARCHAR},
       </if>
       <if test="address != null">
         #{address,jdbcType=VARCHAR},
@@ -223,7 +223,7 @@
         #{emergencycontact,jdbcType=VARCHAR},
       </if>
       <if test="emergencycontactmobilephone != null">
-        #{emergencycontactmobilephone,jdbcType=INTEGER},
+        #{emergencycontactmobilephone,jdbcType=VARCHAR},
       </if>
       <if test="email != null">
         #{email,jdbcType=VARCHAR},
@@ -269,7 +269,7 @@
         mobliePhone = #{record.mobliephone,jdbcType=VARCHAR},
       </if>
       <if test="record.teachercardid != null">
-        teacherCardId = #{record.teachercardid,jdbcType=INTEGER},
+        teacherCardId = #{record.teachercardid,jdbcType=VARCHAR},
       </if>
       <if test="record.address != null">
         address = #{record.address,jdbcType=VARCHAR},
@@ -278,7 +278,7 @@
         emergencyContact = #{record.emergencycontact,jdbcType=VARCHAR},
       </if>
       <if test="record.emergencycontactmobilephone != null">
-        emergencyContactMobilePhone = #{record.emergencycontactmobilephone,jdbcType=INTEGER},
+        emergencyContactMobilePhone = #{record.emergencycontactmobilephone,jdbcType=VARCHAR},
       </if>
       <if test="record.email != null">
         Email = #{record.email,jdbcType=VARCHAR},
@@ -305,10 +305,10 @@
       gender = #{record.gender,jdbcType=INTEGER},
       academy = #{record.academy,jdbcType=VARCHAR},
       mobliePhone = #{record.mobliephone,jdbcType=VARCHAR},
-      teacherCardId = #{record.teachercardid,jdbcType=INTEGER},
+      teacherCardId = #{record.teachercardid,jdbcType=VARCHAR},
       address = #{record.address,jdbcType=VARCHAR},
       emergencyContact = #{record.emergencycontact,jdbcType=VARCHAR},
-      emergencyContactMobilePhone = #{record.emergencycontactmobilephone,jdbcType=INTEGER},
+      emergencyContactMobilePhone = #{record.emergencycontactmobilephone,jdbcType=VARCHAR},
       Email = #{record.email,jdbcType=VARCHAR},
       role = #{record.role,jdbcType=INTEGER},
       work = #{record.work,jdbcType=VARCHAR}
@@ -336,7 +336,7 @@
         mobliePhone = #{mobliephone,jdbcType=VARCHAR},
       </if>
       <if test="teachercardid != null">
-        teacherCardId = #{teachercardid,jdbcType=INTEGER},
+        teacherCardId = #{teachercardid,jdbcType=VARCHAR},
       </if>
       <if test="address != null">
         address = #{address,jdbcType=VARCHAR},
@@ -345,7 +345,7 @@
         emergencyContact = #{emergencycontact,jdbcType=VARCHAR},
       </if>
       <if test="emergencycontactmobilephone != null">
-        emergencyContactMobilePhone = #{emergencycontactmobilephone,jdbcType=INTEGER},
+        emergencyContactMobilePhone = #{emergencycontactmobilephone,jdbcType=VARCHAR},
       </if>
       <if test="email != null">
         Email = #{email,jdbcType=VARCHAR},
@@ -369,10 +369,10 @@
       gender = #{gender,jdbcType=INTEGER},
       academy = #{academy,jdbcType=VARCHAR},
       mobliePhone = #{mobliephone,jdbcType=VARCHAR},
-      teacherCardId = #{teachercardid,jdbcType=INTEGER},
+      teacherCardId = #{teachercardid,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       emergencyContact = #{emergencycontact,jdbcType=VARCHAR},
-      emergencyContactMobilePhone = #{emergencycontactmobilephone,jdbcType=INTEGER},
+      emergencyContactMobilePhone = #{emergencycontactmobilephone,jdbcType=VARCHAR},
       Email = #{email,jdbcType=VARCHAR},
       role = #{role,jdbcType=INTEGER},
       work = #{work,jdbcType=VARCHAR}
