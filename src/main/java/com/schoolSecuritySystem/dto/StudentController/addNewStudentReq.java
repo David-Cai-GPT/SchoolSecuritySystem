@@ -10,7 +10,7 @@ public class addNewStudentReq {
     private int domitory;
     private String emergencyContact;
     private String emergencyContactMobilePhone;
-    private String Email;
+    private String email;
     private int role;
 
     public String getName() {
@@ -86,11 +86,11 @@ public class addNewStudentReq {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public int getRole() {

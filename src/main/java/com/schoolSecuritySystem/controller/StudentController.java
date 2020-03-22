@@ -7,6 +7,7 @@ import com.schoolSecuritySystem.service.impl.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
@@ -27,6 +28,6 @@ public class StudentController {
 
     @ResponseBody
     @PostMapping("/addNewStudent")
-    public boolean AddNewStudent(addNewStudentReq dto) { return studentService.addNewStudent(dto); }
+    public boolean AddNewStudent(@RequestBody addNewStudentReq dto) { return studentService.addNewStudent(dto); }
 
 }
