@@ -18,16 +18,31 @@ public class StudentController {
     @Autowired
     private StudentServiceImpl studentService;
 
+    /**
+     *得到所有收到管理学生信息
+     */
     @ResponseBody
     @PostMapping("/getAllStudentInfo")
     public List<StudentInfo> GetAllStudentInfo() { return studentService.getStudentList(); }
 
+    /**
+     *得到所有受到管理学生人数
+     */
     @ResponseBody
     @PostMapping("/getAllStudentNum")
     public int GetAllStudentNum() { return studentService.getStudentNum(); }
 
+    /**
+     *添加管理新的学生
+     */
     @ResponseBody
     @PostMapping("/addNewStudent")
     public boolean AddNewStudent(@RequestBody addNewStudentReq dto) { return studentService.addNewStudent(dto); }
 
+    /**
+     *修改学生信息
+     */
+    @ResponseBody
+    @PostMapping("/editStudentInfo")
+    public Boolean EditStudentInfo(@RequestBody addNewStudentReq dto) {return studentService.editStudentInfo(dto); }
 }

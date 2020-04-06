@@ -524,7 +524,7 @@ public class EmployeeInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andEmployeecardidEqualTo(Integer value) {
+        public Criteria andEmployeecardidEqualTo(String value) {
             addCriterion("employeeCardId =", value, "employeecardid");
             return (Criteria) this;
         }

@@ -7,6 +7,8 @@ import com.schoolSecuritySystem.pojo.StudentInfoExample;
 import com.schoolSecuritySystem.pojo.TeacherInfo;
 import com.schoolSecuritySystem.pojo.TeacherInfoExample;
 import com.schoolSecuritySystem.service.TeacherService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,8 @@ import java.util.List;
 public class TeacherServiceImpl implements TeacherService {
     @Autowired
     private TeacherInfoMapper teacherInfoMapper;
+
+    private Logger logger = LoggerFactory.getLogger(TeacherServiceImpl.class);
 
     @Override
     public int getTeacherNum() {
@@ -42,6 +46,7 @@ public class TeacherServiceImpl implements TeacherService {
         criteria.andNameEqualTo(dto.getName());
         List<TeacherInfo> list = teacherInfoMapper.selectByExample(teacherInfoExample);
         if (list.size() != 0) {
+            logger.info("已存在该教师信息");
             return false;
         } else {
             TeacherInfo teacherInfo = new TeacherInfo();
@@ -59,5 +64,33 @@ public class TeacherServiceImpl implements TeacherService {
             teacherInfoMapper.insert(teacherInfo);
             return true;
         }
+    }
+
+    @Override
+    public boolean editTeacherInfo(addNewTeacherReq dto) {
+        String teacherCardId = dto.getTeacherCardId();
+        TeacherInfoExample teacherInfoExample = new TeacherInfoExample();
+        teacherInfoExample.createCriteria().andTeachercardidEqualTo(teacherCardId);
+        List<TeacherInfo> list = teacherInfoMapper.selectByExample(teacherInfoExample);
+        if(list.size() == 0){
+            logger.info("没有找到相应的教师资料");
+            return false;
+        } else {
+            TeacherInfo teacherInfo = new TeacherInfo();
+            teacherInfo.setId(list.get(0).getId());
+            teacherInfo.setName(dto.getName());
+            teacherInfo.setGender(dto.getGender());
+            teacherInfo.setAcademy(dto.getAcademy());
+            teacherInfo.setMobliephone(dto.getMobilephone());
+            teacherInfo.setTeachercardid(dto.getTeacherCardId());
+            teacherInfo.setAddress(dto.getAddress());
+            teacherInfo.setEmergencycontact(dto.getEmergencyContact());
+            teacherInfo.setEmergencycontactmobilephone(dto.getEmergencyContactMobilePhone());
+            teacherInfo.setEmail(dto.getEmail());
+            teacherInfo.setRole(dto.getRole());
+            teacherInfo.setWork(dto.getWork());
+            teacherInfoMapper.updateByExample(teacherInfo, teacherInfoExample);
+        }
+        return true;
     }
 }
