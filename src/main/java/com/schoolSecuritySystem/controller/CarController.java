@@ -1,9 +1,7 @@
 package com.schoolSecuritySystem.controller;
 
 
-import com.schoolSecuritySystem.dto.CarController.CarInfoReq;
-import com.schoolSecuritySystem.pojo.Activityapply;
-import com.schoolSecuritySystem.pojo.Carrecord;
+import com.schoolSecuritySystem.pojo.CarRecord;
 import com.schoolSecuritySystem.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.ParseException;
 import java.util.List;
 
 @Controller
@@ -19,17 +18,21 @@ import java.util.List;
 public class CarController {
     @Autowired
     private CarService carService;
+
+    /**
+     *车辆入园记录
+     */
     @ResponseBody
     @PostMapping("/carRecord")
-    public boolean CarRecord(@RequestBody CarInfoReq dto) { return carService.carRecord(dto); }
+    public boolean CarRecord(@RequestBody String carNumber) { return carService.carRecord(carNumber); }
 
     @ResponseBody
     @PostMapping("/allCarInfo")
-    public List<Carrecord> GetAllCarInfo() { return carService.carInfo(); }
+    public List<CarRecord> GetAllCarInfo() { return carService.carInfo(); }
 
     @ResponseBody
     @PostMapping("/carOutRecord")
-    public boolean CarOutRecord(@RequestBody CarInfoReq dto) { return carService.carOutRecord(dto); }
+    public double CarOutRecord(@RequestBody String carNumber) throws ParseException { return carService.carOutRecord(carNumber); }
 
     @ResponseBody
     @PostMapping("/surplusParkNumber")
