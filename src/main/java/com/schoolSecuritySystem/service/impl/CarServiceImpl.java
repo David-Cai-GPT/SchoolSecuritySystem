@@ -81,6 +81,11 @@ public class CarServiceImpl implements CarService {
         if(list.get(0).getCostmethod() == 1){
             logger.info("园区内车辆");
             cost = duringTime * 10 / 3600 * p;
+            UserCarAccountInfoExample userCarAccountInfoExample = new UserCarAccountInfoExample();
+            userCarAccountInfoExample.createCriteria().andCarNumberEqualTo(carNumber);
+            UserCarAccountInfo userCarAccountInfo = new UserCarAccountInfo();
+            userCarAccountInfo.setSurplus(userCarAccountInfo.getSurplus() - cost);
+            userCarAccountInfoMapper.updateByExample(userCarAccountInfo, userCarAccountInfoExample);
         } else {
             cost = duringTime * 10 / 3600;
         }

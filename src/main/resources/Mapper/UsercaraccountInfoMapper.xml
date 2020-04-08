@@ -9,7 +9,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_CardId" jdbcType="VARCHAR" property="userCardid" />
     <result column="car_number" jdbcType="VARCHAR" property="carNumber" />
-    <result column="surplus" jdbcType="INTEGER" property="surplus" />
+    <result column="surplus" jdbcType="DOUBLE" property="surplus" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -138,7 +138,7 @@
     insert into user_car_account_info (id, user_CardId, car_number, 
       surplus)
     values (#{id,jdbcType=INTEGER}, #{userCardid,jdbcType=VARCHAR}, #{carNumber,jdbcType=VARCHAR}, 
-      #{surplus,jdbcType=INTEGER})
+      #{surplus,jdbcType=DOUBLE})
   </insert>
   <insert id="insertSelective" parameterType="com.schoolSecuritySystem.pojo.UserCarAccountInfo">
     <!--
@@ -171,7 +171,7 @@
         #{carNumber,jdbcType=VARCHAR},
       </if>
       <if test="surplus != null">
-        #{surplus,jdbcType=INTEGER},
+        #{surplus,jdbcType=DOUBLE},
       </if>
     </trim>
   </insert>
@@ -202,7 +202,7 @@
         car_number = #{record.carNumber,jdbcType=VARCHAR},
       </if>
       <if test="record.surplus != null">
-        surplus = #{record.surplus,jdbcType=INTEGER},
+        surplus = #{record.surplus,jdbcType=DOUBLE},
       </if>
     </set>
     <if test="_parameter != null">
@@ -218,7 +218,7 @@
     set id = #{record.id,jdbcType=INTEGER},
       user_CardId = #{record.userCardid,jdbcType=VARCHAR},
       car_number = #{record.carNumber,jdbcType=VARCHAR},
-      surplus = #{record.surplus,jdbcType=INTEGER}
+      surplus = #{record.surplus,jdbcType=DOUBLE}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -237,7 +237,7 @@
         car_number = #{carNumber,jdbcType=VARCHAR},
       </if>
       <if test="surplus != null">
-        surplus = #{surplus,jdbcType=INTEGER},
+        surplus = #{surplus,jdbcType=DOUBLE},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -250,7 +250,7 @@
     update user_car_account_info
     set user_CardId = #{userCardid,jdbcType=VARCHAR},
       car_number = #{carNumber,jdbcType=VARCHAR},
-      surplus = #{surplus,jdbcType=INTEGER}
+      surplus = #{surplus,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

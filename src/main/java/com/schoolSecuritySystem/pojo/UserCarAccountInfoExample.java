@@ -404,52 +404,52 @@ public class UserCarAccountInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andSurplusEqualTo(Integer value) {
+        public Criteria andSurplusEqualTo(Double value) {
             addCriterion("surplus =", value, "surplus");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusNotEqualTo(Integer value) {
+        public Criteria andSurplusNotEqualTo(Double value) {
             addCriterion("surplus <>", value, "surplus");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusGreaterThan(Integer value) {
+        public Criteria andSurplusGreaterThan(Double value) {
             addCriterion("surplus >", value, "surplus");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSurplusGreaterThanOrEqualTo(Double value) {
             addCriterion("surplus >=", value, "surplus");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusLessThan(Integer value) {
+        public Criteria andSurplusLessThan(Double value) {
             addCriterion("surplus <", value, "surplus");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusLessThanOrEqualTo(Integer value) {
+        public Criteria andSurplusLessThanOrEqualTo(Double value) {
             addCriterion("surplus <=", value, "surplus");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusIn(List<Integer> values) {
+        public Criteria andSurplusIn(List<Double> values) {
             addCriterion("surplus in", values, "surplus");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusNotIn(List<Integer> values) {
+        public Criteria andSurplusNotIn(List<Double> values) {
             addCriterion("surplus not in", values, "surplus");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusBetween(Integer value1, Integer value2) {
+        public Criteria andSurplusBetween(Double value1, Double value2) {
             addCriterion("surplus between", value1, value2, "surplus");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusNotBetween(Integer value1, Integer value2) {
+        public Criteria andSurplusNotBetween(Double value1, Double value2) {
             addCriterion("surplus not between", value1, value2, "surplus");
             return (Criteria) this;
         }
