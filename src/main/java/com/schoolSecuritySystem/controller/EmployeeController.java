@@ -1,8 +1,6 @@
 package com.schoolSecuritySystem.controller;
 
 import com.schoolSecuritySystem.dto.EmployeeController.addNewEmployeeReq;
-import com.schoolSecuritySystem.dto.StudentController.addNewStudentReq;
-import com.schoolSecuritySystem.dto.TeacherController.addNewTeacherReq;
 import com.schoolSecuritySystem.pojo.EmployeeInfo;
 import com.schoolSecuritySystem.service.impl.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

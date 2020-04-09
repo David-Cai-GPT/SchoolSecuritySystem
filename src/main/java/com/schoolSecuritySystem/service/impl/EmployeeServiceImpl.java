@@ -4,8 +4,6 @@ import com.schoolSecuritySystem.dao.EmployeeInfoMapper;
 import com.schoolSecuritySystem.dto.EmployeeController.addNewEmployeeReq;
 import com.schoolSecuritySystem.pojo.EmployeeInfo;
 import com.schoolSecuritySystem.pojo.EmployeeInfoExample;
-import com.schoolSecuritySystem.pojo.TeacherInfo;
-import com.schoolSecuritySystem.pojo.TeacherInfoExample;
 import com.schoolSecuritySystem.service.EmployeeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
