@@ -46,6 +46,9 @@ public class userAccountServiceImpl implements UserAccountService {
             double surplus = list.get(0).getSurplus() + money;
             UserCarAccountInfo userCarAccountInfo = new UserCarAccountInfo();
             userCarAccountInfo.setSurplus(surplus);
+            userCarAccountInfo.setId(list.get(0).getId());
+            userCarAccountInfo.setCarNumber(list.get(0).getCarNumber());
+            userCarAccountInfo.setUserCardid(list.get(0).getUserCardid());
             userCarAccountInfoMapper.updateByExample(userCarAccountInfo, userCarAccountInfoExample);
             return surplus;
         } else {

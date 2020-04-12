@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/UserAccount")
 public class UserCarAccountController {
     @Autowired
     private UserAccountService userAccountService;
@@ -27,12 +28,12 @@ public class UserCarAccountController {
      */
     @ResponseBody
     @GetMapping("/userAccountInvest")
-    public double UserAccountInvest(@RequestParam("user_CardId")String user_CardId, @RequestParam("money")double money) { return userAccountService.UserAccountInvest(user_CardId, money); }
+    public double UserAccountInvest(@RequestParam("userCardId")String userCardId, @RequestParam("money")double money) { return userAccountService.UserAccountInvest(userCardId, money); }
 
     /**
      * 获得所有充值用户信息
      */
     @ResponseBody
-    @GetMapping("/getAllUserAccountInfo")
+    @PostMapping("/getAllUserAccountInfo")
     public List<UserCarAccountInfo> GetAllUserAccountInfo() { return userAccountService.getAllUserAccountInfo(); }
 }
