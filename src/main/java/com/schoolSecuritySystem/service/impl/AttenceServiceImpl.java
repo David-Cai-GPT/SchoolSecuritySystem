@@ -5,16 +5,14 @@ import com.schoolSecuritySystem.dao.EmployeeInfoMapper;
 import com.schoolSecuritySystem.dao.StudentInfoMapper;
 import com.schoolSecuritySystem.dao.TeacherInfoMapper;
 import com.schoolSecuritySystem.dto.AttenceController.AttenceDto;
+import com.schoolSecuritySystem.dto.AttenceController.ChartDataDto;
 import com.schoolSecuritySystem.pojo.*;
 import com.schoolSecuritySystem.service.AttenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class AttenceServiceImpl implements AttenceService {
@@ -75,8 +73,8 @@ public class AttenceServiceImpl implements AttenceService {
             }
             if(role == 3){
                EmployeeInfoExample employeeInfoExample = new EmployeeInfoExample();
-            employeeInfoExample.createCriteria().andIdIsNotNull();
-            List<EmployeeInfo> employeeList = employeeInfoMapper.selectByExample(employeeInfoExample);
+               employeeInfoExample.createCriteria().andIdIsNotNull();
+               List<EmployeeInfo> employeeList = employeeInfoMapper.selectByExample(employeeInfoExample);
             if(attencedList.size() == 0){
                 return employeeList;
             } else {
@@ -114,5 +112,82 @@ public class AttenceServiceImpl implements AttenceService {
             }
         }
         return null;
+    }
+
+    @Override
+    public ChartDataDto attenceAnalyse(int role) {
+        ChartDataDto chartDataDto = new ChartDataDto();
+        AttenceInfoExample attenceInfoExample = new AttenceInfoExample();
+        Date date = new Date();
+        SimpleDateFormat ft1 = new SimpleDateFormat("yyyy-MM-dd");
+        String attenceDate = ft1.format(date);
+        attenceInfoExample.createCriteria().andIdIsNotNull().andDateEqualTo(attenceDate);
+        if(role == 1){
+            StudentInfoExample studentInfoExample = new StudentInfoExample();
+            studentInfoExample.createCriteria().andIdIsNotNull();
+            List<StudentInfo> studentList = studentInfoMapper.selectByExample(studentInfoExample);
+            int allNumber = studentList.size();
+            int notAttenceNum = notAttenceList(role).size();
+            int attenceNum = allNumber - notAttenceNum;
+            List columns = new ArrayList();
+            columns.add("日期");
+            columns.add("学生总数");
+            columns.add("已签到学生");
+            columns.add("未签到学生");
+            chartDataDto.setColumns(columns);
+            Map rowsMap = new HashMap();
+            rowsMap.put("日期",attenceDate);
+            rowsMap.put("学生总数",allNumber);
+            rowsMap.put("已签到学生",attenceNum);
+            rowsMap.put("未签到学生",notAttenceNum);
+            List rows = new ArrayList();
+            rows.add(rowsMap);
+            chartDataDto.setRows(rows);
+            return chartDataDto;
+        } else if (role == 2){
+            TeacherInfoExample teacherInfoExample = new TeacherInfoExample();
+            teacherInfoExample.createCriteria().andIdIsNotNull();
+            List<TeacherInfo> teacherList = teacherInfoMapper.selectByExample(teacherInfoExample);
+            int allNumber = teacherList.size();
+            int notAttenceNum = notAttenceList(role).size();
+            int attenceNum = allNumber - notAttenceNum;
+            List columns = new ArrayList();
+            columns.add("日期");
+            columns.add("教师总数");
+            columns.add("已签到教师");
+            columns.add("未签到教师");
+            chartDataDto.setColumns(columns);
+            Map rowsMap = new HashMap();
+            rowsMap.put("日期",attenceDate);
+            rowsMap.put("教师总数",allNumber);
+            rowsMap.put("已签到教师",attenceNum);
+            rowsMap.put("未签到教师",notAttenceNum);
+            List rows = new ArrayList();
+            rows.add(rowsMap);
+            chartDataDto.setRows(rows);
+            return chartDataDto;
+        } else {
+            EmployeeInfoExample employeeInfoExample = new EmployeeInfoExample();
+            employeeInfoExample.createCriteria().andIdIsNotNull();
+            List<EmployeeInfo> employeeList = employeeInfoMapper.selectByExample(employeeInfoExample);
+            int allNumber = employeeList.size();
+            int notAttenceNum = notAttenceList(role).size();
+            int attenceNum = allNumber - notAttenceNum;
+            List columns = new ArrayList();
+            columns.add("日期");
+            columns.add("职工总数");
+            columns.add("已签到职工");
+            columns.add("未签到职工");
+            chartDataDto.setColumns(columns);
+            Map rowsMap = new HashMap();
+            rowsMap.put("日期",attenceDate);
+            rowsMap.put("职工总数",allNumber);
+            rowsMap.put("已签到职工",attenceNum);
+            rowsMap.put("未签到职工",notAttenceNum);
+            List rows = new ArrayList();
+            rows.add(rowsMap);
+            chartDataDto.setRows(rows);
+            return chartDataDto;
+        }
     }
 }
