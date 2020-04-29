@@ -31,7 +31,7 @@ public class EquipmentServiceImpl implements EquipmentService {
     }
 
     @Override
-    public Boolean addNewEquipmentInfo(EquipmentInfoDto dto) {
+    public boolean addNewEquipmentInfo(EquipmentInfoDto dto) {
         EquipmentInfo equipmentInfo = new EquipmentInfo();
         equipmentInfo.setEquipmentnumber(dto.getEquipmentNumber());
         equipmentInfo.setEquipmenttype(dto.getEquipmentType());
@@ -42,14 +42,15 @@ public class EquipmentServiceImpl implements EquipmentService {
         List<EquipmentInfo> list =  equipmentInfoMapper.selectByExample(equipmentInfoExample);
         if(list.size() == 0){
             equipmentInfoMapper.insert(equipmentInfo);
+            return true;
         } else {
             logger.info("存储失败，数据库已含有相同编号的设备");
+            return false;
         }
-        return null;
     }
 
     @Override
-    public Boolean modifyEquipmentStatus(String equipmentNumber, String equipmentStatus) {
+    public boolean modifyEquipmentStatus(String equipmentNumber, String equipmentStatus) {
         EquipmentInfoExample equipmentInfoExample = new EquipmentInfoExample();
         equipmentInfoExample.createCriteria().andEquipmentnumberEqualTo(equipmentNumber);
         List<EquipmentInfo> list = equipmentInfoMapper.selectByExample(equipmentInfoExample);
