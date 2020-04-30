@@ -45,21 +45,21 @@ public class EntranceGuardController {
 
     /**
      * 查询单个门禁下权限信息
-     * @param entranGuardNumber
+     * @param entranceGuardNumber
      * @return
      */
     @ResponseBody
     @GetMapping("/singleEntranceGuardInfo")
-    public List<EntranceGuardUserInfo> SingleEntranceGuardInfo(@RequestParam("entranGuardNumber")String entranGuardNumber){ return entranceGuardService.singleEntranceGuardInfo(entranGuardNumber); }
+    public List<EntranceGuardUserInfo> SingleEntranceGuardInfo(@RequestParam("entranceGuardNumber")String entranceGuardNumber){ return entranceGuardService.singleEntranceGuardInfo(entranceGuardNumber); }
 
     /**
      * 删除单个门禁权限
      * @param userCardId
-     * @param entranGuardNumber
+     * @param entranceGuardNumber
      * @return
      */
     @ResponseBody
     @GetMapping("/deleteEntranceGuardPeople")
     public boolean DeleteEntranceGuardPeople(@RequestParam("userCardId")String userCardId,
-                                             @RequestParam("entranGuardNumber")String entranGuardNumber){ return entranceGuardService.deleteEntranceGuardPeople(userCardId,entranGuardNumber); }
+                                             @RequestParam("entranceGuardNumber")String entranceGuardNumber){ return entranceGuardService.deleteEntranceGuardPeople(userCardId,entranceGuardNumber); }
 }
