@@ -10,6 +10,9 @@ import com.schoolSecuritySystem.service.DiningRoomService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +24,7 @@ public class DiningRoomServiceImpl implements DiningRoomService {
     private DiningroomCardInfoMapper diningroomCardInfoMapper;
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public boolean investMoney(String cardId, double money) {
         DiningroomCardInfoExample diningroomCardInfoExample = new DiningroomCardInfoExample();
         diningroomCardInfoExample.createCriteria().andIdcardEqualTo(cardId);
